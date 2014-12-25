@@ -1,4 +1,4 @@
-githuber
+Githuber
 ========
 
 Gitbook for "Githuber"
