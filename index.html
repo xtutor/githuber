@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="A Chinese tutorial for using Github"/>
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/docs.css" rel="stylesheet"/>
+    <link href="assets/css/yue.css" rel="stylesheet"/>
     <link href="assets/css/app.css" rel="stylesheet"/>
-    <link href="assets/css/app-theme.css" rel="stylesheet"/>
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,100,100italic,300" rel="stylesheet" type="text/css"/>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.min.js"></script><![endif]-->
   </head>
-  <body data-target=".content-nav">
+  <body>
+    
     <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
       <div class="container">
         <div class="navbar-header">
@@ -21,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/" class="navbar-brand"><h1>Githuber</h1></a>
+          <h1 class="pull-left">Githuber</h1>
         </div>        
         <nav class="collapse navbar-collapse bs-navbar-collapse">
           <ul class="nav navbar-nav navbar-right bs-nav">
@@ -30,280 +32,264 @@
         </nav>          
       </div>
     </header>
-    <section id="subtitle">
-      <div class="container">
+  
+    <div class="container bs-docs-container">
         <div class="row">
-          <div class="span12">
-            <h2><strong>Github</strong>简明课程。</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="body">
-      <div class="container">
-        <div class="row">
-          <div class="span9">
-            <h3 id="introduction">Introduction</h3>
-            <p>Retrofit turns your REST API into a Java interface.</p>
-            <pre class="prettyprint">public interface GitHubService {
-  @GET("/users/{user}/repos")
-  List&lt;Repo> listRepos(@Path("user") String user);
-}</pre>
-            <p>The <code>RestAdapter</code> class generates an implementation of the <code>GitHubService</code> interface.</p>
-            <pre class="prettyprint">RestAdapter restAdapter = new RestAdapter.Builder()
-    .setEndpoint("https://api.github.com")
-    .build();
+            <div class="col-md-9" role="main">
+           
+                <div class="bs-docs-section"> 
+                    <h2 id="introduction" class="page-header">课程简介</h2>
+                    <p class="lead">Github，全球最大的开源社交编程及代码托管网站。</p>
+                    <p>
+                    2006年jquery源码从google code迁移到了github;<br/>
+                    2008年Github Inc. 正式成立；<br/>
+                    2013年新用户注册数超过了300万，中国用户数居第三位；<br/>
+                    2013年总项目数量超过1000万；<br/>
+                    2013年152,135,090次代码推送；
+                    </p>
+                    <p>…</p>
+                    <p>所有这些数据在今年还在不断飙升中…<br/>
+                    作为热爱前端开发、页面重构的你，是否其中一份子？<br/>
+                    如果不是，《Githuber》这门课程将手把手带你了解和使用github平台的各种常用功能，让你赶上在世界代码开源分享社区里混迹的潮流。
+                    </p>
+                </div>
 
-GitHubService service = restAdapter.create(GitHubService.class);</pre>
-            <p>Each call on the generated <code>GitHubService</code> makes an HTTP request to the remote webserver.</p>
-            <pre class="prettyprint">List&lt;Repo> repos = service.listRepos("octocat");</pre>
-            <p>Use annotations to describe the HTTP request:</p>
-            <ul>
-              <li>URL parameter replacement and query parameter support</li>
-              <li>Object conversion to request body (e.g., JSON, protocol buffers)</li>
-              <li>Multipart request body and file upload</li>
-            </ul>
+                <div class="bs-docs-section">
+                    <h3 id="why">课程目的</h3>
 
-            <h3 id="api-declaration">API Declaration</h3>
-            <p>Annotations on the interface methods and its parameters indicate how a request will be handled.</p>
+                    <p>让学员，</p>
+                    <ol>
+                        <li>了解github提供的各种功能；</li>
+                        <li>学会使用github注册个人帐号、建立个人源码项目；</li>
+                        <li>学会向个人源码项目中提交代码、修改代码、删除代码；</li>
+                        <li>学会将个人域名绑定至github项目，利用github托管个人（或组织）的静态站点；</li>
+                        <li>学会拉取别人的源码项目并做为个人的开发分支；</li>
+                        <li>了解和使用神奇的gh-pages分支；</li>
+                    </ol>
+                    <p>最终成为能够熟练使用Github的人。</p>
+                </div>
 
-            <h4>Request Method</h4>
-            <p>Every method must have an HTTP annotation that provides the request method and relative URL. There are five built-in annotations: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, and <code>HEAD</code>. The relative URL of the resource is specified in the annotation.</p>
-            <pre class="prettyprint">@GET("/users/list")</pre>
-            <p>You can also specify query parameters in the URL.</p>
-            <pre class="prettyprint">@GET("/users/list?sort=desc")</pre>
-            </pre>
+                <div class="bs-docs-section">
 
-            <h4>URL Manipulation</h4>
-            <p>A request URL can be updated dynamically using replacement blocks and parameters on the method. A replacement block is an alphanumeric string surrounded by <code>{</code> and <code>}</code>. A corresponding parameter must be annotated with <code>@Path</code> using the same string.</p>
-            <pre class="prettyprint">@GET("/group/{id}/users")
-List&lt;User> groupList(@Path("id") int groupId);</pre>
-            <p>Query parameters can also be added.</p>
-            <pre class="prettyprint">@GET("/group/{id}/users")
-List&lt;User> groupList(@Path("id") int groupId, @Query("sort") String sort);</pre>
-            <p>For complex query parameter combinations a <code>Map</code> can be used.</p>
-            <pre class="prettyprint">@GET("/group/{id}/users")
-List&lt;User> groupList(@Path("id") int groupId, @QueryMap Map&lt;String, String&gt; options);</pre>
+                <h3 id="target">课程对象</h3>
+                <p>前后端开发工程师。<br/>特别适用于没有接触过Github，同时想了解Github，有意愿在Github上创建个人作品站点、分享开源代码的同学。</p>                
 
-            <h4>Request Body</h4>
-            <p>An object can be specified for use as an HTTP request body with the <code>@Body</code> annotation.</p>
-            <pre class="prettyprint">@POST("/users/new")
-void createUser(@Body User user, Callback&lt;User> cb);</pre>
-            <p>The object will also be converted using the <code>RestAdapter</code>'s converter.</p>
+                </div>
 
-            <h4>Form Encoded and Multipart</h4>
-            <p>Methods can also be declared to send form-encoded and multipart data.</p>
-            <p>Form-encoded data is sent when <code>@FormUrlEncoded</code> is present on the method. Each key-value pair is annotated with <code>@Field</code> containing the name and the object providing the value.</p>
-            <pre class="prettyprint">@FormUrlEncoded
-@POST("/user/edit")
-User updateUser(@Field("first_name") String first, @Field("last_name") String last);</pre>
-            <p>Multipart requests are used when <code>@Multipart</code> is present on the method. Parts are declared using the <code>@Part</code> annotation.</p>
-            <pre class="prettyprint">@Multipart
-@PUT("/user/photo")
-User updateUser(@Part("photo") TypedFile photo, @Part("description") TypedString description);</pre>
-            <p>Multipart parts use the <code>RestAdapter</code>'s converter or they can implement <code>TypedOutput</code> to handle their own serialization.</p>
+                <div class="bs-docs-section">
+                <h3 id="features">了解Github的基本功能</h3>
+                <p>Github的基本功能主要包括以下几个方面：</p>
+                <ol>
+                    <li>源码项目（Repository）</li>
+                    <li>源码片段（Gist）</li>
+                    <li>站点（Github Pages）</li>
+                    <li>API</li>
+                    <li>个人中心（User）</li>
+                    <li>组织（Organization）</li>
+                </ol>
+                <p>明细可参考下图:</p>
+                <p>
+                    <img src="assets/img/features.png" alt="Github features"/>
+                </p>  
 
-            <h4>Header Manipulation</h4>
-            <p>You can set static headers for a method using the <code>@Headers</code> annotation.</p>
-            <pre class="prettyprint">@Headers("Cache-Control: max-age=640000")
-@GET("/widget/list")
-List&lt;Widget> widgetList();</pre>
-            <pre class="prettyprint">@Headers({
-    "Accept: application/vnd.github.v3.full+json",
-    "User-Agent: Retrofit-Sample-App"
-})
-@GET("/users/{username}")
-User getUser(@Path("username") String username);</pre>
-            <p>Note that headers do not overwrite each other. All headers with the same name will be included in the request.</p>
-            <p>A request Header can be updated dynamically using the <code>@Header</code> annotation. A corresponding parameter must be provided to the <code>@Header</code>. If the value is null, the header will be omitted. Otherwise, <code>toString</code> will be called on the value, and the result used.</p>
-            <pre class="prettyprint">@GET("/user")
-void getUser(@Header("Authorization") String authorization, Callback&lt;User> callback)</pre>
-            <p>Headers that need to be added to every request can be specified using a <code>RequestInterceptor</code>. The following code creates a <code>RequestInterceptor</code> that will add a <code>User-Agent</code> header to every request.</p>
-            <pre class="prettyprint">RequestInterceptor requestInterceptor = new RequestInterceptor() {
-  @Override
-  public void intercept(RequestFacade request) {
-    request.addHeader("User-Agent", "Retrofit-Sample-App");
-  }
-};
+                </div>
 
-RestAdapter restAdapter = new RestAdapter.Builder()
-  .setEndpoint("https://api.github.com")
-  .setRequestInterceptor(requestInterceptor)
-  .build();</pre>
+                <div class="bs-docs-section">
+                <h3 id="create-account">创建Github账户</h3>
+                <p>具体注册过程略。<p>
+                <h4 id="choose-plan">选择付费计划</h4>
+                <p>
+                    <img src="assets/img/plans.png" alt="Fee plans"/> 
+                </p>
+                <p>个人用一般选择免费计划，如果有需要托管一些私密非开源的项目，可以酌情选择其它的计划。</p>
+                <h4 id="user-home">个人主页</h4>
+                <p>注册成功后，可以通过https://github.com/xxx 访问个人主页，其中xxx是用户名<br/>
+                例如我的个人主页 为：https://github.com/mamboer
+                </p>
 
-            <h4>Synchronous vs. Asynchronous vs. Observable</h4>
-            <p>Methods can be declared for either synchronous or asynchronous execution.</p>
-            <p>A method with a return type will be executed synchronously.</p>
-            <pre class="prettyprint">@GET("/user/{id}/photo")
-Photo getUserPhoto(@Path("id") int id);</pre>
-            <p>Asynchronous execution requires the last parameter of the method be a <code>Callback</code>.</p>
-            <pre class="prettyprint">@GET("/user/{id}/photo")
-void getUserPhoto(@Path("id") int id, Callback&lt;Photo> cb);</pre>
-            <p>On Android, callbacks will be executed on the main thread. For desktop applications callbacks will happen on the same thread that executed the HTTP request.</p>
+                <p>
+                    <img src="assets/img/my.png" alt="Github@mamboer" />
+                </p>
+                </div>
 
-            <p>Retrofit also integrates <a href="https://github.com/ReactiveX/RxJava/wiki">RxJava</a> to support methods with a return type of <code>rx.Observable</code></p>
-            <pre class="prettyprint">@GET("/user/{id}/photo")
-Observable&lt;Photo> getUserPhoto(@Path("id") int id);</pre>
-            <p>Observable requests are subscribed asynchronously and observed on the same thread that executed the HTTP request.  To observe on a different thread (e.g. Android's main thread) call <code>observeOn(Scheduler)</code> on the returned <code>Observable</code>.</p>
+                <div class="bs-docs-section">
+                    <h3 id="create-org">创建Github组织</h3>
+                    <p>
+                    在创建了个人账户后，为了方便项目代码的灵活组织，Github支持你创建组织。<br/>
+                    组织的应用场景有点像我们线下的现实生活：
+                    <ol>
+                        <li>你可能有一个公司，公司里面的开源项目便适合挂在组织下面</li>
+                        <li>你可能有三五码友，码友之间一起协作的项目也适合挂在组织下面</li>
+                        <li>参加我们今天课程的所有同学，有着了解Github应用的共同兴趣，也可以当成一个小小的组织。</li>
+                    </ol>
+                    <p>
+                    组织名和用户名一样，是具有唯一性的，下面我们为参加本堂课程的同学新建一个组织，名为xtutor（githuber已被抢注~~）。
+                    </p>
+                    <h4>入口</h4>
+                    <p>
+                    在个人主页的右上角可以找到创建组织的入口：
+                    </p>
+                    <p><img src="assets/img/org1.png" alt="create org" /></p>
+                    <h4>表单</h4>
+                    <p>填写组织表单：</p>
+                    <p><img src="assets/img/org2.png" alt="create org" /></p>
+                    <h4>管理界面</h4>
+                    <p>创建完成后的管理界面：</p>
+                    <p><img src="assets/img/org3.png" alt="create org" /></p>
 
-            <h4>Response Object Type</h4>
-            <p>HTTP responses are automatically converted to a specified type using the <code>RestAdapter</code>'s converter which defaults to JSON. The desired type is declared as the method return type or using the <code>Callback</code> or <code>Observable</code>.
-            <pre class="prettyprint">@GET("/users/list")
-List&lt;User> userList();
+                    <p>至此，我们学会了在github上创建个人账户、组织，这些信息存储在github服务器上的，与我们平时工作的项目代码还无法建立联系。如何建立github和本地项目代码间的联系呢？我们需要使用GIT客户端。</p>
+                </div>
 
-@GET("/users/list")
-void userList(Callback&lt;List&lt;User>> cb);
+                <div class="bs-docs-section">
+                    <h3 id="git-env">搭建Git客户端环境</h3>
+                    <p>
+                    对于Github的各种基本功能，为了降低非开发者的使用门槛，Github平台提供了非常完善的体验良好的基于图形界面的操作；同时也为开发者提供了基于命令行的高效操作方式。
+                    </p>
+                    <p>
+                    本课程将着重使用基于命令行的操作方式，很多习惯图形界面操作的同学一开始会不习惯，但坚持下去，最后你会喜欢上便捷的命令行操作的。
+                    </p>
+                    <p>
+                    在介绍源码项目相关功能之前，我们需先在自己的电脑上搭建Git的客户端环境，因为Github主要使用GIT这个分布式的版本控制系统来管控源码，尽管它也支持SVN。
+                    </p>
+                    <p>
+                    既然使用基于命令行的操作方式，我们需要什么？一个能够执行各种Git命令的给力的命令行终端。
+                    </p>
 
-@GET("/users/list")
-Observable&lt;List&lt;User>> userList();</pre>
-            <p>For access to the raw HTTP response use the <code>Response</code> type.</p>
-            <pre class="prettyprint">@GET("/users/list")
-Response userList();
+                    <h4 id="git-env-win">在windows下搭建Git客户端环境-Git Bash</h4>
+                    <p>提到windows的命令行终端，大多数人会联想到CMD，我要推荐的是Git Bash，它模拟linux下的命令行终端bash，因而Git好友度更高。要知道Git本身也是linux阵型的产物~~</p>
+                    <p><img src="assets/img/gitbash.png" alt="Git Bash" /></p>
+                    <p>下载和安装Git Bash非常简单，去<a href="https://msysgit.github.io/" target="_blank">msysgit.github.io</a> 下载安装msysgit即可。</p>
+                    <p>安装完毕后打开Git Bash验证是否安装成功：</p>
+                    <p><img src="assets/img/gitbash1.png" alt="Git Bash" /></p>
+                    
+                    <h4 id="git-env-osx">在MAC系统下搭建Git客户端环境</h4>
+                    <p>
+                    MAC下OSX 10.9 (Mavericks)和10.10(yosemite)貌似默认安装了GIT。<br/>
+                    可先到终端下利用git --version验证下是否有git，如果没有可利用homebrew安装git。
+                    </p>
+                    <p>
+                    安装homebrew<br/>
+                    灰常简单，参考<a href="http://brew.sh/" target="_blank">brew.sh</a>
+                    </p>
+                    <p>
+                    安装git<br/>
+                    <pre>brew install git</pre>
+                    </p>
+                    <p>
+                    安装完毕后打开终端验证是否安装成功：
+                    </p>
+                    <p>
+                    <img src="assets/img/bash.png" alt="bash" />
+                    </p>
+                </div>
 
-@GET("/users/list")
-void userList(Callback&lt;Response> cb);
-
-@GET("/users/list")
-Observable&lt;Response> userList();</pre>
-
-            <h3 id="restadapter-configuration">RestAdapter Configuration</h3>
-            <p><code>RestAdapter</code> is the class through which your API interfaces are turned into callable objects. By default, Retrofit will give you sane defaults for your platform but it allows for customization.</p>
-
-            <h4>JSON Conversion</h4>
-            <p>Retrofit uses <a href="https://code.google.com/p/google-gson/">Gson</a> by default to convert HTTP bodies to and from JSON. If you want to specify behavior that is different from Gson's defaults (e.g. naming policies, date formats, custom types), provide a new <code>Gson</code> instance with your desired behavior when building a <code>RestAdapter</code>. Refer to the <a href="https://sites.google.com/site/gson/gson-user-guide">Gson documentation</a> for more details on customization.</p>
-            <h4>Custom Gson Converter Example</h4>
-            <p>The following code creates a new <code>Gson</code> instance that will convert all fields from lower case with underscores to camel case and vice versa. It also registers a type adapter for the <code>Date</code> class. This <code>DateTypeAdapter</code> will be used anytime Gson encounters a <code>Date</code> field.</p>
-            <p>The <code>gson</code> instance is passed as a parameter to <code>GsonConverter</code>, which is a wrapper class for converting types.</p>
-            <pre class="prettyprint">Gson gson = new GsonBuilder()
-    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-    .registerTypeAdapter(Date.class, new DateTypeAdapter())
-    .create();
-
-RestAdapter restAdapter = new RestAdapter.Builder()
-    .setEndpoint("https://api.github.com")
-    .setConverter(new GsonConverter(gson))
-    .build();
-
-GitHubService service = restAdapter.create(GitHubService.class);</pre>
-            <p>Each call on the generated <code>GithubService</code> will return objects converted using the Gson implementation provided to the <code>RestAdapter</code>.</p>
-            <h4>Content format Agnostic</h4>
-            <p>In addition to JSON, Retrofit can be configured to use other content formats. Retrofit provides alternate converters for XML (using <a href="http://simple.sourceforge.net/">Simple</a>) and Protocol Buffers (using <a href="https://code.google.com/p/protobuf/">protobuf</a> or <a href="https://github.com/square/wire">Wire</a>). Please see the <a href="https://github.com/square/retrofit/tree/master/retrofit-converters">retrofit-converters</a> directory for the full listing of converters.</p>
-            <p>The following code shows how to use <code>SimpleXMLConverter</code> to communicate with an API that uses XML</p>
-            <pre class="prettyprint">RestAdapter restAdapter = new RestAdapter.Builder()
-    .setEndpoint("https://api.soundcloud.com")
-    .setConverter(new SimpleXMLConverter())
-    .build();
-
-SoundCloudService service = restAdapter.create(SoundCloudService.class);</pre>
-            <h4>Custom Converters</h4>
-            <p>If you need to communicate with an API that uses a content-format that Retrofit does not support out of the box (e.g. YAML, txt, custom format) or you wish to use a different library to implement an existing format, you can easily create your own converter. Create a class that implements the <a href="https://github.com/square/retrofit/blob/master/retrofit/src/main/java/retrofit/converter/Converter.java"><code>Converter</code> interface</a> and pass in an instance when building your adapter.</p>
-            <h4>Custom Error Handling</h4>
-            <p>If you need custom error handling for requests, you may provide your own <code>ErrorHandler</code>. The following code shows how to throw a custom exception when a response returns a HTTP 401 status code</p>
-            <pre class="prettyprint">
-class MyErrorHandler implements ErrorHandler {
-  @Override public Throwable handleError(RetrofitError cause) {
-    Response r = cause.getResponse();
-    if (r != null && r.getStatus() == 401) {
-      return new UnauthorizedException(cause);
-    }
-    return cause;
-  }
-}
-
-RestAdapter restAdapter = new RestAdapter.Builder()
-    .setEndpoint("https://api.github.com")
-    .setErrorHandler(new MyErrorHandler())
-    .build();</pre>
-            <p>Note that if the return exception is checked, it must be declared on the interface method. It is recommended that you pass the supplied <code>RetrofitError</code> as the cause to any new exceptions you throw.</p>
-
-            <h4>Logging</h4>
-            <p>If you need to take a closer look at the requests and responses you can easily add logging levels to the <code>RestAdapter</code> with the <code>LogLevel</code> property. The possible logging levels are <code>BASIC</code>, <code>FULL</code>, <code>HEADERS</code>, and <code>NONE</code>.</p>
-            <p>The following code shows the addition of a full log level which will log the headers, body, and metadata for both requests and responses.</p>
-            <pre class="prettyprint">
-RestAdapter restAdapter = new RestAdapter.Builder()
-    .setLogLevel(RestAdapter.LogLevel.FULL)
-    .setEndpoint("https://api.github.com")
-    .build();</pre>
-            <p>This logging can be added or changed at any point in the <code>RestAdapter</code>'s lifecycle by calling the same <code>.setLogLevel()</code> method and supplying a different <code>LogLevel</code> value.</p>
-
-            <h3 id="download">Download</h3>
-            <p><a href="https://search.maven.org/remote_content?g=com.squareup.retrofit&a=retrofit&v=LATEST" class="dl version-href">&darr; <span class="version-tag">Latest</span> JAR</a></p>
-            <p>The source code to the Retrofit, its samples, and this website is <a href="http://github.com/square/retrofit">available on GitHub</a>.</p>
-            <h4>Maven</h4>
-            <pre class="prettyprint">&lt;dependency>
-  &lt;groupId>com.squareup.retrofit&lt;/groupId>
-  &lt;artifactId>retrofit&lt;/artifactId>
-  &lt;version><span class="version pln"><em>(insert latest version)</em></span>&lt;/version>
-&lt;/dependency></pre>
-            <h4>Gradle</h4>
-            <pre class="prettyprint">
-compile 'com.squareup.retrofit:retrofit:<span class="version pln"><em>(insert latest version)</em></span>'
-</pre>
-            <p>Retrofit requires at minimum Java 6 or Android 2.3.</p>
-
-            <h4>Integration with OkHttp</h4>
-            <p>When using Retrofit together with OkHttp, OkHttp (version 1.6.0 or newer) and OkHttp-UrlConnection are now required.</p>
-            <h4>Maven</h4>
-            <pre class="prettyprint">&lt;dependency>
-  &lt;groupId>com.squareup.okhttp&lt;/groupId>
-  &lt;artifactId>okhttp&lt;/artifactId>
-  &lt;version>2.0.0&lt;/version>
-&lt;/dependency>
-&lt;dependency>
-  &lt;groupId>com.squareup.okhttp&lt;/groupId>
-  &lt;artifactId>okhttp-urlconnection&lt;/artifactId>
-  &lt;version>2.0.0&lt;/version>
-&lt;/dependency>
-</pre>
-            <h4>Gradle</h4>
-<pre class="prettyprint">
-compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
-compile 'com.squareup.okhttp:okhttp:2.0.0'
-</pre>
-            <h3 id="contributing">Contributing</h3>
-            <p>If you would like to contribute code you can do so through GitHub by forking the repository and sending a pull request.</p>
-            <p>When submitting code, please make every effort to follow existing conventions and style in order to keep the code as readable as possible. Please also make sure your code compiles by running <code>mvn clean verify</code>.</p>
-            <p>Before your code can be accepted into the project you must also sign the <a href="http://squ.re/sign-the-cla">Individual Contributor License Agreement (CLA)</a>.</p>
-
-            <h3 id="license">License</h3>
-            <pre>Copyright 2013 Square, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.</pre>
-          </div>
-          <div class="span3">
-            <div class="content-nav" data-spy="affix" data-offset-top="80">
-              <ul class="nav nav-tabs nav-stacked primary">
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#api-declaration">API Declaration</a></li>
-                <li><a href="#restadapter-configuration">RestAdapter Configuration</a></li>
-                <li><a href="#download">Download</a></li>
-                <li><a href="#contributing">Contributing</a></li>
-                <li><a href="#license">License</a></li>
-              </ul>
-              <ul class="nav nav-pills nav-stacked secondary">
-                <li><a href="javadoc/index.html">Javadoc</a></li>
-                <li><a href="http://stackoverflow.com/questions/tagged/retrofit?sort=active">StackOverflow</a></li>
-              </ul>
             </div>
-          </div>
+            
+            <div class="col-md-3"  role="complementary">
+                 <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav bs-docs-sidenav">
+                        <li>
+                            <a href="#intro">课程概述</a>
+                            <ul class="nav">
+                                <li><a href="#why">课程目的</a></li>
+                                <li><a href="#target">课程对象</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#features">Github基本功能</a>
+                        </li>
+                        <li>
+                            <a href="#create-account">创建Github帐户</a>
+                            <ul class="nav">
+                                <li><a href="#choose-plan">选择付款计划</a></li>
+                                <li><a href="#user-home">个人主页</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#create-org">创建Github组织</a>
+                        </li>
+                        <li>
+                            <a href="#git-env">搭建GIT客户端环境</a>
+                            <ul class="nav">
+                                <li><a href="#git-env-win">Windows</a></li>
+                                <li><a href="#git-env-osx">MAC OSX</a></li>
+                                <li><a href="#git-to-github">客户端与Github的通讯</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#ssh-key">SSH Key配置</a>
+                            <ul class="nav">
+                                <li><a href="#uname-email">设置用户名和邮箱</a></li>
+                                <li><a href="#ssh-key-gen">生成SSH密钥</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#create-proj">使用Github - 创建项目</a>
+                            <ul class="nav">
+                                <li><a href="#create-proj-fork">Fork - 复刻项目</a></li>
+                                <li><a href="#create-proj-new">新建项目</a></li>
+                                <li><a href="#proj-ssh-addr">项目的SSH地址</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#git-commands">Git的基本命令</a>
+                            <ul class="nav">
+                                <li><a href="#git-clone">clone</a></li>
+                                <li><a href="#git-checkout">checkout</a></li>
+                                <li><a href="#git-add">add</a></li>
+                                <li><a href="#git-rm">rm</a></li>
+                                <li><a href="#git-mv">mv</a></li>
+                                <li><a href="#git-commit">commit</a></li>
+                                <li><a href="#git-reset">reset</a></li>
+                                <li><a href="#git-push">push</a></li>
+                                <li><a href="#git-pull">pull</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#git-workflow">Git的工作流</a>
+                            <ul class="nav">
+                                <li><a href="#git-tree">三棵『树』</a></li>
+                                <li><a href="#git-tree-more">参考资料《简明指南》</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#github-usage">实战-搭建Github站点</a>
+                            <ul class="nav">
+                                <li><a href="#github-sites">Github站点秀</a></li>
+                                <li><a href="#github-user-sites">个人站点</a></li>
+                                <li><a href="#github-org-sites">组织站点</a></li>
+                                <li><a href="#github-proj-sites">项目站点</a></li>
+                                <li><a href="#github-gh-pages">特殊的gh-pages分支</a></li>
+                                <li><a href="#github-master-gh-pages">master分支与gh-pages分支</a></li>
+                                <li><a href="#github-master-gh-pages-sync">master与gh-pages的自动同步</a></li>
+                                <li><a href="#github-custom-domains">域名绑定</a></li>
+                                <li><a href="#github-custom-subdomains">二级域名绑定</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#summary">课间小结</a></li>
+                        <li>
+                            <a href="#github-adv">Github站点进阶</a>
+                            <ul class="nav">
+                                <li><a href="#github-not-a-host">Github不是虚拟主机</a></li>
+                                <li><a href="#jekyll">Jekyll</a></li>
+                                <li><a href="#octopress">Octopress</a></li>
+                                <li><a href="#markdown">Markdown</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#endcall">下课，同学们再见</a></li>
+                    </ul>
+                </nav>
+           
+            </div>
         </div>
-        <div class="row">
-          <div class="span12 logo">
-            <a href="https://squareup.com"><img src="assets/img/logo-square.png" alt="Square, Inc."/></a>
-          </div>
-        </div>
+    </div>
+    
+    <div class="row">
+      <div class="container logo">
+        <a href="http://xtutor.github.io"><img src="assets/img/githuber.png" alt="XTUTOR Studio"/></a>
       </div>
-    </section>
+    </div>
+  </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.smooth-scroll.min.js"></script>
@@ -312,9 +298,6 @@ limitations under the License.</pre>
       $(function() {
         // Syntax highlight code blocks.
         prettyPrint();
-
-        // Spy on scroll position for real-time updating of current section.
-        $('body').scrollspy();
 
         // Use smooth-scroll for internal links.
         $('a').smoothScroll();
@@ -329,6 +312,42 @@ limitations under the License.</pre>
             hide: 0
           }
         });
+
+        // Scrollspy
+        var $window = $(window);
+        var $body   = $(document.body);
+
+        $body.scrollspy({
+          target: '.bs-docs-sidebar'
+        });
+        $window.on('load', function () {
+          $body.scrollspy('refresh');
+        });
+
+        // Sidenav affixing
+        setTimeout(function () {
+          var $sideBar = $('.bs-docs-sidebar');
+
+          $sideBar.affix({
+            offset: {
+              top: function () {
+                var offsetTop      = $sideBar.offset().top,
+                    sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
+                    navOuterHeight = $('.bs-docs-nav').height();
+
+                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+              },
+              bottom: function () {
+                return (this.bottom = $('.bs-docs-footer').outerHeight(true));
+              }
+            }
+          })
+        }, 100);
+
+        setTimeout(function () {
+          $('.bs-top').affix()
+        }, 100);
+
 
       });
 
