@@ -181,6 +181,340 @@
                     <p>
                     <img src="assets/img/bash.png" alt="bash" />
                     </p>
+
+                    <h4 id="git-to-github">Git客户端与Github的通讯</h4>
+                    <p>
+                    现在我们有了Git的客户端环境，又有了Github的帐号，在开始利用Git来创建、复制Github项目等等操作之前，我们还有必要了解下Git客户端与Github服务器的通讯方式。
+                    </p>                         <p>Github远程服务器的通讯支持https或者ssh协议，不管用的是哪一种协议，每次本地的Git客户端与Github远程服务器端的数据交换都涉及登录与验证的问题。我们教程中涉及的Git客户端与Github服务器的通讯选用ssh协议，利用基于密钥的ssh安全验证，可以避免每次发生数据交换时输入用户名、密码。所以在开始与Github服务器打交道之前，我们需先在本地与服务器之间配置ssh安全验证。 </p>
+                    <p>想详细了解ssh协议的同学可自行百科下，这里简单仅提下它的原理：</p>
+
+                    <p> 在客户端的电脑上创建一对密匙，并把公用密匙放在需要访问的服务器上。如果你要连接到SSH服务器上，客户端软件就会向服务器发出请求，请求用你的密匙进行安全验证。服务器收到请求之后，先在该服务器上你的主目录下寻找你的公用密匙，然后把它和你发送过来的公用密匙进行比较。如果两个密匙一致，服务器就用公用密匙加密“质询”（challenge）并把它发送给客户端软件。客户端软件收到“质询”之后就可以用你的私人密匙解密再把它发送给服务器，从而完成安全验证。 </p>
+                </div>
+
+                <div class="bs-docs-section">
+                    <h3 id="ssh-key">Github的SSH Key配置</h3>
+                    <p>以下操作步骤涉及的命令，windows系统请打开Git Bash输入，Mac系统请打开Terminal输入。</p>
+                    <h4 id="uname-email">设置Git的用户名和邮箱</h4>
+                    <pre>
+$ git config --global user.name "用户名"
+$ git config --global user.email "x@y.com"
+                    </pre>
+                    <p>
+                    注意：x@y.com是你注册Github时的邮箱名
+                    </p>
+                    <h4 id="ssh-key-gen">生成SSH KEY密钥</h4>
+                    <h5>1.查看是否已经有了ssh密钥</h5>
+                    <pre>
+cd ~/.ssh
+                    </pre>
+                    <p>
+                    如果没有密钥则不会有此文件夹，有则备份删除
+                    </p>
+                    <h5>
+                    2.创建密钥
+                    </h5>
+                    <pre>
+$ ssh-keygen -t rsa -C “x@y.com”
+                    </pre>
+                    <p>
+                    按3个回车，密码为空。
+                    </p>
+                    <p>
+                    接着会有类似下面的提示：
+                    </p>
+                    <pre>
+Your identification has been saved in /home/tekkub/.ssh/id_rsa.
+Your public key has been saved in /home/tekkub/.ssh/id_rsa.pub.
+The key fingerprint is:
+………………
+                    </pre>
+                    <p>
+                    最后得到了两个文件：id_rsa和id_rsa.pub
+                    </p>
+                    <h5>
+                    3.添加密钥到客户端的ssh代理应用中
+                    </h5>
+                    <pre>
+ssh-add ~/.ssh/id_rsa
+                    </pre>
+                    <h5>
+                    4.在github上添加ssh公钥
+                    </h5>
+                    <p>
+                    这要添加的是“id_rsa.pub”里面的公钥，可用记事本打开复制到粘贴板。<br/>
+                    打开https://github.com/ ，登陆后点击右上角的设置(Setting)按钮进入设置页面，然后在页面的左边找到并SSH Keys，在Add SSH Key表单里将id_rsa.pub里面的内容粘贴进来。
+                    </p>
+                    <p><img src="assets/img/sshkey.png" alt="SSH KEY" /></p>
+                    <p>注：标题(Title)最好输你的电脑名以便区分别的电脑的Key。</p>
+                    <h5>5.测试：ssh -T git@github.com</h5>
+                    <p>
+                    一切正常的话会返回类似下面的内容：
+                    </p>
+                    <pre>
+The authenticity of host ‘github.com (207.97.227.239)’ can’t be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added ‘github.com,207.97.227.239′ (RSA) to the list of known hosts.
+ERROR: Hi tekkub! You’ve successfully authenticated, but GitHub does not provide shell access
+Connection to github.com closed.
+                    </pre>
+                    <h5>6.关于代理工具：proxifier</h5>
+                    <p>
+                    有些公司出于安全的原因，连接github服务器可能需要走代理哦。
+                    <br/>
+                    这时候可以使用proxifier软件，新建规则让以下进程走代理：
+                    </p>
+                    <pre>
+ssh;git*;
+                    </pre>
+                    <p>
+                    如下图：
+                    </p>
+                    <p><img src="assets/img/proxifier.png" alt="proxifier" />
+                    <p>配好ssh key，接下来开始正式介绍Github的各个功能点。</p>
+                </div>
+
+                <div class="bs-docs-section">
+                    <h3 id="create-proj">使用Github-创建项目</h3>
+                    <p>在Github上创建项目非常的简单，有两种形式：</p>
+                    <h4 id="create-proj-fork">
+                    复刻（Fork）- 复刻别人的项目
+                    </h4>
+                    <p>
+                    Fork是Github描述跨用户复制、协作维护代码的专用名词。
+                    <br/>
+                    如果你在github上看到自己喜欢的开源项目，就可以Fork到自己的账户上来进行二次开发，添加特性什么的。
+                    </p>
+                    <p>
+                    每个开源的Github项目右上角的地方都有一个Fork按钮：
+                    </p>
+                    <p><img src="assets/img/fork.png" alt="fork" /></p>
+                    <p>
+                    复刻的项目的左上角都会有『forked from』的标注：
+                    </p>
+                    <p>
+                    <img src="assets/img/fork1.png" alt="fork flag" />
+                    </p>
+                    <p>
+                    Fork过来的项目和被Fork的项目关系是独立的，所以你可以随意修改通过Fork操作建立的项目，而不用担心是否影响原项目。
+                    </p>
+                    <p>
+                    如果你在Fork过来的项目上开发了一些新功能点，并想将它们分享给原项目的作者，你可以向原项目发起pull requests：
+                    </p>
+                    <p><img src="assets/img/pullrequest.png" alt="pull request" /></p>
+                    <p>
+                    Pull Requests 相当于告诉原作者：
+                    <br/>
+                    『我在你代码的基础上开发了些新功能，你看看要不要将它们合到你的代码中去』。
+                    </p>
+
+                    <h4 id="create-proj-new">新建项目</h4>
+                    <p>
+                    点击页头右上角的加号，再点击New repository，
+                    </p>
+
+                    <p><img src="assets/img/newproj.png" alt="new project" /></p>
+                    <p>
+                    然后按提示输表单即可，
+                    </p>
+                    <p><img src="assets/img/newproj1.png" alt="new project" /></p>
+
+                    <p>
+                    注：Owner的地方，如果选择用户名，则表明项目挂在个人用户上；如果选择上面新建的组织xtutor，则表明项目挂在组织上。
+                    </p>
+
+                    <h4 id="proj-ssh-addr">项目对应的ssh地址</h4>
+                    
+                    <p>
+                    项目的SSH地址的格式是固定的：
+                    </p>
+                    <ul>
+                        <li>
+                    git@github.com:用户名/项目名.git
+                        </li>
+                        <li>
+                    git@github.com:组织名/项目名.git
+                        </li>
+                    </ul>
+
+                    <p>
+                    也可以到项目首页（https://github.com/用户名/项目名）的右边栏可以找到项目的ssh地址：
+                    </p>
+                    <p><img src="assets/img/sshaddr.png" alt="ssh address" /></p>
+
+                </div>
+
+                <div class="bs-docs-section">
+                    <h3 id="git-commands">使用Github - 基本的GIT命令</h3>
+                    <h4 id="git-clone">1，clone</h4>
+                    <p>
+                    clone命令用于将远程服务器的项目复制到本地电脑。
+                    </p>
+                    <p>
+                    复制到本地后，在项目的根目录下会有一个.git的隐藏目录，这个目录是Git自动生成的，用来存放项目的配置信息、文件以及目录的索引信息等等。
+                    </p>
+                    <p>
+                    使用clone命令复制下来的代码，默认是远程服务器项目的默认分支。在Github上新建项目时如果没有做过别的配置，默认分支为master。如果想将本地的代码切换成别的分支，可参考下面的checkout命令。
+                    </p>
+                    <p>
+                    使用方法：
+                    </p>
+                    <pre>
+git clone git@github.com:mamboer/xxx.git
+                    </pre>
+                    <h4 id="git-checkout">2，checkout</h4>
+                    <p>
+                    将指定的分支签出至当前工作目录。
+                    <br/>
+                    使用checkout之前，需要先使用clone命令哦。
+                    <p>
+                    <p>
+                    使用方法：
+                    </p>
+                    <pre>
+# 切换至gh-pages分支
+git checkout gh-pages
+                    </pre>
+
+                    <h4 id="git-add">3，add</h4>
+                    <p>
+add命令不是向项目添加文件的意思，而是添加文件至索引区域（理解成暂存区域也行），add仅仅是索引指定的文件，告诉git我们需要将指定的文件列入版本控制中去。
+                    </p>
+                    <p>
+                    使用方法：
+                    </p>
+                    <pre>
+# 索引某个文件
+git add 文件名
+                    
+# 索引txt结尾的文件
+git add *.txt
+
+# 索引当前目录下所有未索引的文件，包括已被删除的
+git add -A
+                    </pre>
+                    <h4 id="git-rm">
+                    4，rm
+                    </h4>
+                    <p>
+                    与add命令相反，rm用于移除指定文件及其索引信息。
+                    </p>
+                    <p>使用方法：</p>
+                    <pre>
+# 移除指定文件及其索引信息，如果被移除的文件不是服务器端最新版本的文件则会报错
+git rm 文件名
+
+# 开关-f 
+# 强制移除指定文件及其索引信息，不管是否服务器端最新版本的文件
+git rm -f 文件名
+
+# 强制递归移除指定目录
+git rm -rf 目录名
+
+# 开关--cached
+# 仅仅删除文件的索引信息，保留文件在当前目录位置。相当于告诉git：当前被移除的文件不再做版本控制。
+git rm --cached 文件名
+                    </pre>
+
+                    <h4 id="git-rm">
+                    5，mv
+                    </h4>
+                    <p>
+                    用于移动或者重命名指定文件或文件夹。
+                    </p>
+                    <p>使用方法：</p>
+                    <pre>
+# 移动指定文件
+git mv 文件名 目标文件名
+
+# 开关-f
+# 强制移动指定文件
+git mv -f 文件名 目标文件名 
+                    </pre>
+                    <h4 id="git-commit">
+                    6，commit
+                    </h4>
+                    <p>
+add、rm、mv命令仅仅是针对项目代码当前版本被操作的文件，操作记录保存至索引区域（暂存区域）但不会保存至最终的项目版本中去。
+                    <br/>
+如何将已索引文件的各种变更（添加、修改、删除）提交至本地最终的项目代码中去，同时生成项目的一个版本快照呢？
+                    <br/>
+这便是commit命令的作用了。
+                    <br/>
+注：commit命令仅仅是将文件的变更提交至本地生成新的版本快照，并不会影响github上面的代码哦。
+                    </p>
+                    <p>
+使用方法：
+                    </p>
+                    <pre>
+# 提交修改的文件
+git commit -m "说明信息"
+
+#提交新增的、删除的、修改的文件
+git commit -a -m "说明信息"
+                    </pre>
+                    <h4 id="git-reset">
+                    7，reset
+                    </h4>
+                    <p>
+reset命令用于回滚前面的add、rm、mv、commit操作。
+                    </p>
+                    <p>
+使用方法：
+                    </p>
+                    <pre>
+# git add 文件名的回滚操作
+git reset 文件名 
+
+# git commit的软回滚操作
+# 回滚至上一次提交的版本，并保留本地的文件修改
+git reset --soft HEAD~1
+
+# git commit的硬回滚操作
+# 回滚至上一次提交的版本，并放弃本地的文件修改
+git reset --hard
+# 或
+git reset --hard HEAD~1
+                    </pre>
+                    <h4 id="git-push">
+  8，push
+                    </h4>
+                    <p>
+  commit仅仅是将代码变更提交到本地版本中。push则是将该版本推送至远程服务器。
+                    </p>
+                    <p>
+  使用方法：
+                    </p>
+                    <pre>
+# 将本地的master分支推送至远程服务器的master分支
+git push origin master
+
+# 将本地的当前分支推送至远程服务器
+# 至于推送至远程服务器什么地方，git会从本地项目代码根目录下的配置文件（.git/config）中查找相关的push配置。
+# 如果没有相关的push配置，则推送至远程服务器的默认分支。
+git push
+                    </pre>
+                    <p>
+如果想将本地的修改版本同时提交至远程服务器的master分支和gh-pages分支，那么可以在.git/config的配置中加入以下内容：
+                    </p>
+                    <pre>
+[remote "origin"]
+    push = +refs/heads/master:refs/heads/gh-pages
+    push = +refs/heads/master:refs/heads/master
+                    </pre>
+                    <h4 id="git-pull">
+                    9，pull
+                    </h4>
+                    <p>
+         pull命令用于拉取远程服务器项目代码的最新版本至当前工作目录。
+                    </p>
+                    <p>
+         使用方法：
+                    </p>
+                    <pre>
+# 拉取master分支的最新版本并合并至本地代码库的当前版本中去
+git pull origin master
+                    </pre>
                 </div>
 
             </div>
