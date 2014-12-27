@@ -38,8 +38,8 @@
             <div class="col-md-9" role="main">
            
                 <div class="bs-docs-section"> 
-                    <h2 id="introduction" class="page-header">课程简介</h2>
-                    <p class="lead">Github，全球最大的开源社交编程及代码托管网站。</p>
+                    <h3 id="intro" class="page-header">课程概述</h3>
+                    <p>Github，全球最大的开源社交编程及代码托管网站。</p>
                     <p>
                     2006年jquery源码从google code迁移到了github;<br/>
                     2008年Github Inc. 正式成立；<br/>
@@ -660,17 +660,13 @@ git pull origin master
 
         // Sidenav affixing
         setTimeout(function () {
-          var $sideBar = $('.bs-docs-sidebar');
 
-          $sideBar.affix({
+          var $sidebar = $('.bs-docs-sidebar'),
+              sideBarOffsetTop = $sidebar.offset().top-20;
+
+          $sidebar.affix({
             offset: {
-              top: function () {
-                var offsetTop      = $sideBar.offset().top,
-                    sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10),
-                    navOuterHeight = $('.bs-docs-nav').height();
-
-                return (this.top = offsetTop - navOuterHeight - sideBarMargin);
-              },
+              top:sideBarOffsetTop, 
               bottom: function () {
                 return (this.bottom = $('.bs-docs-footer').outerHeight(true));
               }
