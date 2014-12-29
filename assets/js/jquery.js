@@ -9,7 +9,7 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2014-12-26T01:20Z
+ * Date: 2014-12-29T04:18Z
  */
 
 (function( global, factory ) {
@@ -44,6 +44,8 @@
 //
 var arr = [];
 
+var document = window.document;
+
 var slice = arr.slice;
 
 var concat = arr.concat;
@@ -63,9 +65,6 @@ var support = {};
 
 
 var
-	// Use the correct document accordingly with window argument (sandbox)
-	document = window.document,
-
 	version = "3.0.0-pre",
 
 	// Define a local copy of jQuery
@@ -5596,11 +5595,12 @@ function addGetHookIf( conditionFn, hookFn ) {
 		}
 	};
 }
+var documentElement = document.documentElement;
+
 
 
 (function() {
 	var pixelPositionVal, boxSizingReliableVal,
-		docElem = document.documentElement,
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
 
@@ -5628,13 +5628,13 @@ function addGetHookIf( conditionFn, hookFn ) {
 			"display:block;margin-top:1%;top:1%;" +
 			"border:1px;padding:1px;width:4px;position:absolute";
 		div.innerHTML = "";
-		docElem.appendChild( container );
+		documentElement.appendChild( container );
 
 		var divStyle = window.getComputedStyle( div, null );
 		pixelPositionVal = divStyle.top !== "1%";
 		boxSizingReliableVal = divStyle.width === "4px";
 
-		docElem.removeChild( container );
+		documentElement.removeChild( container );
 	}
 
 	// Support: node.js jsdom
@@ -5673,11 +5673,11 @@ function addGetHookIf( conditionFn, hookFn ) {
 					"display:block;margin:0;border:0;padding:0";
 				marginDiv.style.marginRight = marginDiv.style.width = "0";
 				div.style.width = "1px";
-				docElem.appendChild( container );
+				documentElement.appendChild( container );
 
 				ret = !parseFloat( window.getComputedStyle( marginDiv, null ).marginRight );
 
-				docElem.removeChild( container );
+				documentElement.removeChild( container );
 				div.removeChild( marginDiv );
 
 				return ret;
@@ -7548,6 +7548,8 @@ jQuery.fn.extend({
 });
 
 
+var location = window.location;
+
 var nonce = jQuery.now();
 
 var rquery = (/\?/);
@@ -7570,7 +7572,7 @@ jQuery.parseXML = function( data ) {
 
 	// Support: IE9
 	try {
-		xml = ( new DOMParser() ).parseFromString( data, "text/xml" );
+		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
 	} catch ( e ) {
 		xml = undefined;
 	}
@@ -8580,7 +8582,7 @@ jQuery.fn.extend({
 
 jQuery.ajaxSettings.xhr = function() {
 	try {
-		return new XMLHttpRequest();
+		return new window.XMLHttpRequest();
 	} catch ( e ) {}
 };
 
@@ -8866,6 +8868,11 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 support.createHTMLDocument = (function() {
 	var doc = document.implementation.createHTMLDocument( "" );
+	// Support: Node with jsdom<=1.5.0+
+	// jsdom's document created via the above method doesn't contain the body
+	if ( !doc.body ) {
+		return false;
+	}
 	doc.body.innerHTML = "<form></form><form></form>";
 	return doc.body.childNodes.length === 2;
 })();
@@ -8999,8 +9006,6 @@ jQuery.expr.filters.animated = function( elem ) {
 
 
 
-var docElem = window.document.documentElement;
-
 /**
  * Gets a window from an element
  */
@@ -9133,14 +9138,14 @@ jQuery.fn.extend({
 
 	offsetParent: function() {
 		return this.map(function() {
-			var offsetParent = this.offsetParent || docElem;
+			var offsetParent = this.offsetParent || documentElement;
 
 			while ( offsetParent && ( !jQuery.nodeName( offsetParent, "html" ) &&
 				jQuery.css( offsetParent, "position" ) === "static" ) ) {
 				offsetParent = offsetParent.offsetParent;
 			}
 
-			return offsetParent || docElem;
+			return offsetParent || documentElement;
 		});
 	}
 });

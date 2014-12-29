@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="A Chinese tutorial for using Github"/>
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/yue.min.css" rel="stylesheet"/>
     <link href="assets/css/docs.css" rel="stylesheet"/>
-    <link href="assets/css/yue.css" rel="stylesheet"/>
-    <link href="assets/css/app.css" rel="stylesheet"/>
-    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300italic,100,100italic,300" rel="stylesheet" type="text/css"/>
+    <link href="assets/fonts/roboto/v14/stylesheet.css" rel="stylesheet"/>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
@@ -35,10 +34,10 @@
   
     <div class="container bs-docs-container">
         <div class="row">
-            <div class="col-md-9" role="main">
+            <div class="col-md-9 yue du" role="main">
            
                 <div class="bs-docs-section"> 
-                    <h3 id="intro" class="page-header">课程概述</h3>
+                    <h2 id="intro" class="page-header">课程概述</h2>
                     <p>Github，全球最大的开源社交编程及代码托管网站。</p>
                     <p>
                     2006年jquery源码从google code迁移到了github;<br/>
@@ -52,9 +51,6 @@
                     作为热爱前端开发、页面重构的你，是否其中一份子？<br/>
                     如果不是，《Githuber》这门课程将手把手带你了解和使用github平台的各种常用功能，让你赶上在世界代码开源分享社区里混迹的潮流。
                     </p>
-                </div>
-
-                <div class="bs-docs-section">
                     <h3 id="why">课程目的</h3>
 
                     <p>让学员，</p>
@@ -67,17 +63,15 @@
                         <li>了解和使用神奇的gh-pages分支；</li>
                     </ol>
                     <p>最终成为能够熟练使用Github的人。</p>
-                </div>
 
-                <div class="bs-docs-section">
-
-                <h3 id="target">课程对象</h3>
-                <p>前后端开发工程师。<br/>特别适用于没有接触过Github，同时想了解Github，有意愿在Github上创建个人作品站点、分享开源代码的同学。</p>                
+                    <h3 id="target">课程对象</h3>
+                    <p>前后端开发工程师。<br/>特别适用于没有接触过Github，同时想了解Github，有意愿在Github上创建个人作品站点、分享开源代码的同学。</p>                
 
                 </div>
 
+
                 <div class="bs-docs-section">
-                <h3 id="features">了解Github的基本功能</h3>
+                <h2 id="features">了解Github的基本功能</h2>
                 <p>Github的基本功能主要包括以下几个方面：</p>
                 <ol>
                     <li>源码项目（Repository）</li>
@@ -88,32 +82,32 @@
                     <li>组织（Organization）</li>
                 </ol>
                 <p>明细可参考下图:</p>
-                <p>
+                <p class="bs-docs-imgwrap">
                     <img src="assets/img/features.png" alt="Github features"/>
                 </p>  
 
                 </div>
 
                 <div class="bs-docs-section">
-                <h3 id="create-account">创建Github账户</h3>
+                <h2 id="create-account">创建Github账户</h2>
                 <p>具体注册过程略。<p>
-                <h4 id="choose-plan">选择付费计划</h4>
-                <p>
+                <h3 id="choose-plan">选择付费计划</h3>
+                <p class="bs-docs-imgwrap">
                     <img src="assets/img/plans.png" alt="Fee plans"/> 
                 </p>
                 <p>个人用一般选择免费计划，如果有需要托管一些私密非开源的项目，可以酌情选择其它的计划。</p>
-                <h4 id="user-home">个人主页</h4>
+                <h3 id="user-home">个人主页</h3>
                 <p>注册成功后，可以通过https://github.com/xxx 访问个人主页，其中xxx是用户名<br/>
                 例如我的个人主页 为：https://github.com/mamboer
                 </p>
 
-                <p>
+                <p class="bs-docs-imgwrap">
                     <img src="assets/img/my.png" alt="Github@mamboer" />
                 </p>
                 </div>
 
                 <div class="bs-docs-section">
-                    <h3 id="create-org">创建Github组织</h3>
+                    <h2 id="create-org">创建Github组织</h2>
                     <p>
                     在创建了个人账户后，为了方便项目代码的灵活组织，Github支持你创建组织。<br/>
                     组织的应用场景有点像我们线下的现实生活：
@@ -125,23 +119,23 @@
                     <p>
                     组织名和用户名一样，是具有唯一性的，下面我们为参加本堂课程的同学新建一个组织，名为xtutor（githuber已被抢注~~）。
                     </p>
-                    <h4>入口</h4>
+                    <h3 id="create-org-entry">入口</h3>
                     <p>
                     在个人主页的右上角可以找到创建组织的入口：
                     </p>
-                    <p><img src="assets/img/org1.png" alt="create org" /></p>
-                    <h4>表单</h4>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/org1.png" alt="create org" /></p>
+                    <h3 id="create-org-form">表单</h3>
                     <p>填写组织表单：</p>
-                    <p><img src="assets/img/org2.png" alt="create org" /></p>
-                    <h4>管理界面</h4>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/org2.png" alt="create org" /></p>
+                    <h3 id="create-org-home">管理界面</h3>
                     <p>创建完成后的管理界面：</p>
-                    <p><img src="assets/img/org3.png" alt="create org" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/org3.png" alt="create org" /></p>
 
                     <p>至此，我们学会了在github上创建个人账户、组织，这些信息存储在github服务器上的，与我们平时工作的项目代码还无法建立联系。如何建立github和本地项目代码间的联系呢？我们需要使用GIT客户端。</p>
                 </div>
 
                 <div class="bs-docs-section">
-                    <h3 id="git-env">搭建Git客户端环境</h3>
+                    <h2 id="git-env">搭建Git客户端环境</h2>
                     <p>
                     对于Github的各种基本功能，为了降低非开发者的使用门槛，Github平台提供了非常完善的体验良好的基于图形界面的操作；同时也为开发者提供了基于命令行的高效操作方式。
                     </p>
@@ -155,14 +149,14 @@
                     既然使用基于命令行的操作方式，我们需要什么？一个能够执行各种Git命令的给力的命令行终端。
                     </p>
 
-                    <h4 id="git-env-win">在windows下搭建Git客户端环境-Git Bash</h4>
+                    <h3 id="git-env-win">在windows下搭建Git客户端环境-Git Bash</h3>
                     <p>提到windows的命令行终端，大多数人会联想到CMD，我要推荐的是Git Bash，它模拟linux下的命令行终端bash，因而Git好友度更高。要知道Git本身也是linux阵型的产物~~</p>
-                    <p><img src="assets/img/gitbash.png" alt="Git Bash" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/gitbash.png" alt="Git Bash" /></p>
                     <p>下载和安装Git Bash非常简单，去<a href="https://msysgit.github.io/" target="_blank">msysgit.github.io</a> 下载安装msysgit即可。</p>
                     <p>安装完毕后打开Git Bash验证是否安装成功：</p>
-                    <p><img src="assets/img/gitbash1.png" alt="Git Bash" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/gitbash1.png" alt="Git Bash" /></p>
                     
-                    <h4 id="git-env-osx">在MAC系统下搭建Git客户端环境</h4>
+                    <h3 id="git-env-osx">在MAC系统下搭建Git客户端环境</h3>
                     <p>
                     MAC下OSX 10.9 (Mavericks)和10.10(yosemite)貌似默认安装了GIT。<br/>
                     可先到终端下利用git --version验证下是否有git，如果没有可利用homebrew安装git。
@@ -176,13 +170,11 @@
                     <pre>brew install git</pre>
                     </p>
                     <p>
-                    安装完毕后打开终端验证是否安装成功：
-                    </p>
-                    <p>
-                    <img src="assets/img/bash.png" alt="bash" />
+                    安装完毕后打开终端验证是否安装成功：<br/>
+                    <pre>$ git --version</pre>
                     </p>
 
-                    <h4 id="git-to-github">Git客户端与Github的通讯</h4>
+                    <h3 id="git-to-github">Git客户端与Github的通讯</h3>
                     <p>
                     现在我们有了Git的客户端环境，又有了Github的帐号，在开始利用Git来创建、复制Github项目等等操作之前，我们还有必要了解下Git客户端与Github服务器的通讯方式。
                     </p>                         <p>Github远程服务器的通讯支持https或者ssh协议，不管用的是哪一种协议，每次本地的Git客户端与Github远程服务器端的数据交换都涉及登录与验证的问题。我们教程中涉及的Git客户端与Github服务器的通讯选用ssh协议，利用基于密钥的ssh安全验证，可以避免每次发生数据交换时输入用户名、密码。所以在开始与Github服务器打交道之前，我们需先在本地与服务器之间配置ssh安全验证。 </p>
@@ -192,9 +184,9 @@
                 </div>
 
                 <div class="bs-docs-section">
-                    <h3 id="ssh-key">Github的SSH Key配置</h3>
+                    <h2 id="ssh-key">Github的SSH Key配置</h2>
                     <p>以下操作步骤涉及的命令，windows系统请打开Git Bash输入，Mac系统请打开Terminal输入。</p>
-                    <h4 id="uname-email">设置Git的用户名和邮箱</h4>
+                    <h3 id="uname-email">设置Git的用户名和邮箱</h3>
                     <pre>
 $ git config --global user.name "用户名"
 $ git config --global user.email "x@y.com"
@@ -202,24 +194,22 @@ $ git config --global user.email "x@y.com"
                     <p>
                     注意：x@y.com是你注册Github时的邮箱名
                     </p>
-                    <h4 id="ssh-key-gen">生成SSH KEY密钥</h4>
-                    <h5>1.查看是否已经有了ssh密钥</h5>
+                    <h3 id="ssh-key-gen">生成SSH KEY密钥</h3>
+                    <h4>查看是否已经有了ssh密钥</h4>
                     <pre>
 cd ~/.ssh
                     </pre>
                     <p>
                     如果没有密钥则不会有此文件夹，有则备份删除
                     </p>
-                    <h5>
-                    2.创建密钥
-                    </h5>
+                    <h4>
+                    创建密钥
+                    </h4>
                     <pre>
 $ ssh-keygen -t rsa -C “x@y.com”
                     </pre>
                     <p>
                     按3个回车，密码为空。
-                    </p>
-                    <p>
                     接着会有类似下面的提示：
                     </p>
                     <pre>
@@ -231,22 +221,22 @@ The key fingerprint is:
                     <p>
                     最后得到了两个文件：id_rsa和id_rsa.pub
                     </p>
-                    <h5>
-                    3.添加密钥到客户端的ssh代理应用中
-                    </h5>
+                    <h4>
+                    添加密钥到客户端的ssh代理应用中
+                    </h4>
                     <pre>
 ssh-add ~/.ssh/id_rsa
                     </pre>
-                    <h5>
-                    4.在github上添加ssh公钥
-                    </h5>
+                    <h4>
+                    在github上添加ssh公钥
+                    </h4>
                     <p>
                     这要添加的是“id_rsa.pub”里面的公钥，可用记事本打开复制到粘贴板。<br/>
                     打开https://github.com/ ，登陆后点击右上角的设置(Setting)按钮进入设置页面，然后在页面的左边找到并SSH Keys，在Add SSH Key表单里将id_rsa.pub里面的内容粘贴进来。
                     </p>
-                    <p><img src="assets/img/sshkey.png" alt="SSH KEY" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/sshkey.png" alt="SSH KEY" /></p>
                     <p>注：标题(Title)最好输你的电脑名以便区分别的电脑的Key。</p>
-                    <h5>5.测试：ssh -T git@github.com</h5>
+                    <h4>测试：ssh -T git@github.com</h4>
                     <p>
                     一切正常的话会返回类似下面的内容：
                     </p>
@@ -258,7 +248,7 @@ Warning: Permanently added ‘github.com,207.97.227.239′ (RSA) to the list of 
 ERROR: Hi tekkub! You’ve successfully authenticated, but GitHub does not provide shell access
 Connection to github.com closed.
                     </pre>
-                    <h5>6.关于代理工具：proxifier</h5>
+                    <h4>关于代理工具：proxifier</h4>
                     <p>
                     有些公司出于安全的原因，连接github服务器可能需要走代理哦。
                     <br/>
@@ -270,16 +260,16 @@ ssh;git*;
                     <p>
                     如下图：
                     </p>
-                    <p><img src="assets/img/proxifier.png" alt="proxifier" />
+                    <p class="bs-docs-imgwrap"><img src="assets/img/proxifier.png" alt="proxifier" />
                     <p>配好ssh key，接下来开始正式介绍Github的各个功能点。</p>
                 </div>
 
                 <div class="bs-docs-section">
-                    <h3 id="create-proj">使用Github-创建项目</h3>
+                    <h2 id="create-proj">使用Github-创建项目</h2>
                     <p>在Github上创建项目非常的简单，有两种形式：</p>
-                    <h4 id="create-proj-fork">
+                    <h3 id="create-proj-fork">
                     复刻（Fork）- 复刻别人的项目
-                    </h4>
+                    </h3>
                     <p>
                     Fork是Github描述跨用户复制、协作维护代码的专用名词。
                     <br/>
@@ -288,11 +278,11 @@ ssh;git*;
                     <p>
                     每个开源的Github项目右上角的地方都有一个Fork按钮：
                     </p>
-                    <p><img src="assets/img/fork.png" alt="fork" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/fork.png" alt="fork" /></p>
                     <p>
                     复刻的项目的左上角都会有『forked from』的标注：
                     </p>
-                    <p>
+                    <p class="bs-docs-imgwrap">
                     <img src="assets/img/fork1.png" alt="fork flag" />
                     </p>
                     <p>
@@ -301,29 +291,29 @@ ssh;git*;
                     <p>
                     如果你在Fork过来的项目上开发了一些新功能点，并想将它们分享给原项目的作者，你可以向原项目发起pull requests：
                     </p>
-                    <p><img src="assets/img/pullrequest.png" alt="pull request" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/pullrequest.png" alt="pull request" /></p>
                     <p>
                     Pull Requests 相当于告诉原作者：
                     <br/>
                     『我在你代码的基础上开发了些新功能，你看看要不要将它们合到你的代码中去』。
                     </p>
 
-                    <h4 id="create-proj-new">新建项目</h4>
+                    <h3 id="create-proj-new">新建项目</h3>
                     <p>
                     点击页头右上角的加号，再点击New repository，
                     </p>
 
-                    <p><img src="assets/img/newproj.png" alt="new project" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/newproj.png" alt="new project" /></p>
                     <p>
                     然后按提示输表单即可，
                     </p>
-                    <p><img src="assets/img/newproj1.png" alt="new project" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/newproj1.png" alt="new project" /></p>
 
                     <p>
                     注：Owner的地方，如果选择用户名，则表明项目挂在个人用户上；如果选择上面新建的组织xtutor，则表明项目挂在组织上。
                     </p>
 
-                    <h4 id="proj-ssh-addr">项目对应的ssh地址</h4>
+                    <h3 id="proj-ssh-addr">项目对应的ssh地址</h3>
                     
                     <p>
                     项目的SSH地址的格式是固定的：
@@ -340,13 +330,13 @@ ssh;git*;
                     <p>
                     也可以到项目首页（https://github.com/用户名/项目名）的右边栏可以找到项目的ssh地址：
                     </p>
-                    <p><img src="assets/img/sshaddr.png" alt="ssh address" /></p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/sshaddr.png" alt="ssh address" /></p>
 
                 </div>
 
                 <div class="bs-docs-section">
-                    <h3 id="git-commands">使用Github - 基本的GIT命令</h3>
-                    <h4 id="git-clone">1，clone</h4>
+                    <h2 id="git-commands">使用Github - 基本的GIT命令</h2>
+                    <h3 id="git-clone">clone</h3>
                     <p>
                     clone命令用于将远程服务器的项目复制到本地电脑。
                     </p>
@@ -362,7 +352,7 @@ ssh;git*;
                     <pre>
 git clone git@github.com:mamboer/xxx.git
                     </pre>
-                    <h4 id="git-checkout">2，checkout</h4>
+                    <h3 id="git-checkout">checkout</h3>
                     <p>
                     将指定的分支签出至当前工作目录。
                     <br/>
@@ -376,7 +366,7 @@ git clone git@github.com:mamboer/xxx.git
 git checkout gh-pages
                     </pre>
 
-                    <h4 id="git-add">3，add</h4>
+                    <h3 id="git-add">add</h3>
                     <p>
 add命令不是向项目添加文件的意思，而是添加文件至索引区域（理解成暂存区域也行），add仅仅是索引指定的文件，告诉git我们需要将指定的文件列入版本控制中去。
                     </p>
@@ -393,9 +383,9 @@ git add *.txt
 # 索引当前目录下所有未索引的文件，包括已被删除的
 git add -A
                     </pre>
-                    <h4 id="git-rm">
-                    4，rm
-                    </h4>
+                    <h3 id="git-rm">
+                    rm
+                    </h3>
                     <p>
                     与add命令相反，rm用于移除指定文件及其索引信息。
                     </p>
@@ -416,9 +406,9 @@ git rm -rf 目录名
 git rm --cached 文件名
                     </pre>
 
-                    <h4 id="git-rm">
-                    5，mv
-                    </h4>
+                    <h3 id="git-rm">
+                    mv
+                    </h3>
                     <p>
                     用于移动或者重命名指定文件或文件夹。
                     </p>
@@ -431,9 +421,9 @@ git mv 文件名 目标文件名
 # 强制移动指定文件
 git mv -f 文件名 目标文件名 
                     </pre>
-                    <h4 id="git-commit">
-                    6，commit
-                    </h4>
+                    <h3 id="git-commit">
+                    commit
+                    </h3>
                     <p>
 add、rm、mv命令仅仅是针对项目代码当前版本被操作的文件，操作记录保存至索引区域（暂存区域）但不会保存至最终的项目版本中去。
                     <br/>
@@ -453,9 +443,9 @@ git commit -m "说明信息"
 #提交新增的、删除的、修改的文件
 git commit -a -m "说明信息"
                     </pre>
-                    <h4 id="git-reset">
-                    7，reset
-                    </h4>
+                    <h3 id="git-reset">
+                    reset
+                    </h3>
                     <p>
 reset命令用于回滚前面的add、rm、mv、commit操作。
                     </p>
@@ -476,9 +466,9 @@ git reset --hard
 # 或
 git reset --hard HEAD~1
                     </pre>
-                    <h4 id="git-push">
-  8，push
-                    </h4>
+                    <h3 id="git-push">
+push
+                    </h3>
                     <p>
   commit仅仅是将代码变更提交到本地版本中。push则是将该版本推送至远程服务器。
                     </p>
@@ -502,9 +492,9 @@ git push
     push = +refs/heads/master:refs/heads/gh-pages
     push = +refs/heads/master:refs/heads/master
                     </pre>
-                    <h4 id="git-pull">
-                    9，pull
-                    </h4>
+                    <h3 id="git-pull">
+                    pull
+                    </h3>
                     <p>
          pull命令用于拉取远程服务器项目代码的最新版本至当前工作目录。
                     </p>
@@ -517,12 +507,440 @@ git pull origin master
                     </pre>
                 </div>
 
+                <div class="bs-docs-section">
+                    <h2 id="git-workflow">Git的工作流</h2>
+                    <p>
+前面介绍了N多的git命令，可是每一个命令作用于Git版本控制工作流的哪个位置呢？<br/>
+这个问题可以通过了解Git的工作流程来获得答案。
+                    </p>
+                    <h3 id="git-tree">三棵『树』</h3>
+                    <p class="bs-docs-imgwrap">
+                    <img src="assets/img/tree.png" alt="git workflow"/>
+                    </p>
+                    <p>
+如上图所示，你的本地仓库（通过git init或git clone创建）由 git维护的三棵“树”组成：<br/>
+                    <ol>
+                        <li>第一个是你的 工作目录，它持有实际文件；</li>
+                        <li> 第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；</li>
+                        <li>最后是 HEAD，它指向你最后一次提交的结果。</li>
+                    </ol>
+                    <p>
+commit之前，所有的操作均作用在工作目录和暂存区。<br/>
+而push操作显然作用在HEAD区域。
+                    <p>
+                    <h3 id="git-tree-more">参考资料: 《简明Git指南》</h3>
+                    <p>网页地址：<br/>
+                    <a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank">http://rogerdudler.github.io/git-guide/index.zh.html</a>
+                    </p>
+                </div>
+
+                <div class="bs-docs-section">
+                    <h2 id="github-usage">实战 - 利用Github搭建静态站点</h2>
+                    <p>
+前面各种口活简单介绍了git的常用命令以及git的工作流，接下来是操的时候了，我们通过利用Github搭建个人（或组织）的静态站点，来进一步熟悉Github以及Git各种命令的使用。
+                    </p>
+                    <h3 id="github-sites">Github静态站点秀</h3>
+                    <h4>Bootstrap</h4>
+                    <p class="bs-docs-imgwrap">
+                        <img src="assets/img/site1.png" alt="bootstrap"/>
+                    </p>
+                    <h4>HAMMER.JS</h4>
+                    <p class="bs-docs-imgwrap">
+                        <img src="assets/img/site2.png" alt="hammer.js"/>
+                    </p>
+                    <h4>Koala</h4>
+                    <p class="bs-docs-imgwrap">
+                        <img src="assets/img/site3.png" alt="koala"/>
+                    </p>
+
+                    <h3 id="github-user-sites">个人站点的搭建</h3>
+                    <p>一个很屌的特殊的项目名：</p>
+                    <pre>
+username.github.io
+                    </pre>
+                    <p>
+按照Github的惯例，凡是以『username.github.io』作为项目名的项目，其静态文件均可以通过username.github.io域名访问：
+                    <br/>
+例如，username.github.io项目内的index.html文件，其访问地址为：
+                    </p>
+                    <pre>
+http://username.github.io/index.html
+                    </pre>
+
+                    <h3 id="github-org-sites">组织站点的搭建</h3>
+                    <p>
+个人站点的特殊项目名规则对组织(organization)同样适用，为了方便演示，我们利用前面新建的组织xtutor，一步一步为本堂课的内容搭建一个github站点。
+                    </p>
+                    <h4>步骤1 - 新建xtutor.github.io项目</h4>
+                    <p>
+在xtutor组织下新建xtutor.github.io项目：
+                    </p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/org-site1.png" alt="create org site"/></p>
+                    <h4>步骤2 - 拷贝至本地，增加index.html文件</h4>
+                    <ol>
+                        <li>打开Terminal(MAC) 或Git Bash (Windows)</li>
+                        <li>切换至存放xtutor.github.io项目的目录（例如偶的~/dev/workspace/github/xtutor）</li>
+                        <li>
+                            执行clone命令进行拷贝<br/>
+                            <pre>git clone git@github.com:xtutor/xtutor.github.io.git</pre> 
+                            <p class="bs-docs-imgwrap"><img src="assets/img/org-site2.png" alt="create org site"/></p>
+                            <p>上图可以看到一个新建的Github项目目录下的文件： </p>
+                            <ul>
+                                <li>.git目录，用于存放项目在客户端的配置信息、文件索引信息</li>
+                                <li>.gitignore文件，用于配置忽略文件</li>
+                                <li>LICENSE文件，版权文件</li>
+                                <li>README.md，github默认的说明文件，markdown格式。</li>
+                            </ul>
+                        </li>
+                        <li> 在根目录下新增index.html<br/>
+                            <p>
+    使用你喜欢的编辑器例如（sublime text）新建文件index.html，<br/>
+    随意加点内容，例如：
+                            </p>
+                            <pre>&lt;h1&gt;Hi, 《Githuber》&lt;/h1&gt;</pre>
+                            <p class="bs-docs-imgwrap"><img src="assets/img/org-site3.png" alt="create org site"/></p>
+                        </li>
+                    </ol>   
+    
+                    <h4>步骤3 - 将index.html提交至远程服务器</h4>
+                    <pre>
+git add -A
+git commit -a -m "add index.html"
+git push
+                    </pre>
+                    <p>
+刷新https://github.com/xtutor/xtutor.github.io，可以看到我们新增的文件哦:
+                    </p>
+                    <p class="bs-docs-imgwrap">
+                        <img src="assets/img/org-site4.png" alt="create org site"/>
+                    </p>
+                    <h4>步骤4 -验证：浏览器打开xtutor.github.io</h4>
+                    <p>
+倒杯茶，干点别的活儿，半个小时后浏览器打开http://xtutor.github.io
+<br/>
+Bingo，
+                    </p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/org-site5.png" alt="create org site"/></p>
+                    <blockquote>
+注：如果出现404，可以再耐心等几分钟。新提交的文件到解析生效至少需要30分钟。
+                    </blockquote>
+
+                    <h3 id="github-proj-sites">项目站点的搭建</h3>
+                    <blockquote>特殊的分支- gh-pages</blockquote>
+                    <p>
+前面我们学会了利用特殊的项目名来搭建个人或组织的站点
+                    <br/>
+                    <ol>
+                        <li>个人站点对应的项目名：username.github.io</li>
+                        <li>组织站点对应的项目名：orgname.github.io</li>
+                    </ol>
+                    </p>
+                    <p>
+挂在个人或组织下面的其它源码项目呢，有没有可能也通过个人或组织的站点地址访问？
+                    </p>
+                    <p>
+例如：<br/>
+
+在xtutor组织下新建一个项目vim，计划用来存放vim编辑器相关的教学资料，是否可以通过下面的地址访问vim项目里面的静态文件？
+                    </p>
+                    <pre>
+http://xtutor.github.io/vim
+                    </pre>
+                    <p>
+答案是肯定的，但是与个人站点、组织站点不同的是，项目站点得利用一个特殊的gh-pages分支而非master分支。
+<br/>
+我们接下来参考上面的组织站点的建立方法，重复一遍操作试试看。<br/>
+                    <pre>
+步骤1 - 新建vim项目
+步骤2 - 拷贝vim项目至本地
+步骤3 - 新增index.html并提交至github服务器
+步骤4 - 等待30分钟后浏览器打开http://xtutor.github.io/vim
+                    </pre>
+                    </p>
+                    <p>
+结果是什么？<br/>
+永远的404~
+                    </p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/proj-site1.png" alt="create proj sites"/></p>
+
+                    <p>
+为什么呢？<br/>
+
+这就是任性，是Github的规则。
+                    </p>
+                    <p>
+在Github站点的规则里面，除了username.github.io和orgname.github.io两种特殊项目外，其它项目的静态文件必须提交至gh-pages分支才能够被web服务器解析，通过http或https地址进行访问。
+                    </p>
+                    <p>
+问题是：gh-pages分支如何创建？
+                    </p>
+
+                    <h3 id="github-gh-pages">创建gh-pages分支</h3>
+                    <p>
+创建gh-pages分支的方法有两种：
+                    </p>
+                    <h4>在github上源码项目的首页创建</h4>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/proj-site2.png" alt="create proj site"/></p>
+                    <p>
+    创建的gh-pages分支会复制master分支的内容过去。
+                    </p>
+                    <h4>在客户端利用git命令创建</h4>
+                    <p>
+    在利用clone命令将vim项目复制到本地后，可利用checkout -b命令创建分支：
+    <br/>
+                    <pre>
+git  checkout -b gh-pages 
+
+将gh-pages分支推送至github远程服务器
+    
+git push origin gh-pages
+                    </pre>
+                    </p>    
+                    <p class="bs-docs-imgwrap"><img src="assets/img/proj-site3.png" alt="create proj site"/></p>
+                    <p>
+    去github网站验证下新创建的gh-pages分支
+                    </p>
+                    
+                    <p class="bs-docs-imgwrap"><img src="assets/img/proj-site4.png" alt="create proj site"/></p>
+
+                    <h4>验证项目站点</h4>
+                    <p>
+    gh-pages分支创建好后，抽个烟喝个茶撸一局,<br/>
+
+    然后浏览器刷新页面：http://xtutor.github.io/vim
+                    <br/>
+
+    Bingo，
+                    </p>
+                    
+                    <p class="bs-docs-imgwrap"><img src="assets/img/proj-site5.png" alt="create proj site"/></p>
+
+                    <h3 id="github-master-gh-pages">master分支和gh-pages分支的功能回顾</h3>
+                    <ol>
+                        <li>master分支是默认的主干分支，类似svn里面的trunk，适合放稳定版本的最新源码</li>
+                        <li>gh-pages分支是github项目站点默认的分支，所有提交至该分支内的文件，都可以通过相应的项目站点URL进行访问</li>
+                        <li>如果项目名为username.github.io或orgname.github.io，master分支兼具gh-pages分支的作用哦！</li>
+                        <li>一句话：master放项目源码，gh-pages放项目相关的站点文件</li>
+                    </ol>
+
+                    <h3 id="github-master-gh-pages-sync">master与gh-pages的自动同步</h3>
+                    <p>
+有时候master分支的内容可能与gh-pages的一样，<br/>
+总不能每次提交文件至master分支，然后再人肉提交一次到gh-pages分支吧！！<br/>
+这种情况下最好能够实现master与gh-pages的自动同步，也就是说提交文件至master分支的时候同时提交一份至gh-pages分支。
+                    </p>
+                    <p>
+怎么做？
+                    </p>
+                    <p>
+利用.git/config配置push命令的默认路径，<br/>
+在前面介绍push命令的时候有提到过，我们可以在.git/config文件中添加push命令的默认路径哦：
+                    </p>
+                    <pre>
+[remote "origin"]
+    push = +refs/heads/master:refs/heads/gh-pages
+    push = +refs/heads/master:refs/heads/master
+                    </pre>
+                    <p>
+酱紫git push便会将当前分支下的内容同时推送至master分支和gh-pages分支。
+<br/>
+哦耶，学会了在github上面创建个人站点、组织站点、项目站点了，给100块好不？
+                    </p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/100.png" alt="100 yuan"/></p>
+
+                    <h3 id="github-custom-domains">域名绑定</h3>
+                    <p>
+xxx.github.io<br/>
+是不是觉得github提供的二级域名不够个性？<br/>
+想不想将自己的域名绑定至github站点？
+                    </p>
+                    <h4>步骤1 - 准备好自己的域名</h4>
+                    <p>
+可以在国内（例如万网net.cn）买但是要啰嗦的备案~<br/>
+可以在国外买，推荐name.com或者godaddy.com这些靠谱点
+                    </p>
+                    <h4>步骤2 - 创建CNAME文件</h4>
+                    <p>
+在项目根目录下添加CNAME文件，<br/>
+                    <ol>
+                        <li>如果是username.github.io或orgname.github.io项目，直接在master分支下添加即可</li>
+                        <li>如果是其它项目，记得在gh-pages分支下添加该文件</li>
+                    </ol>
+                    </p>
+                    <p>
+CNAME文件内加入你的域名即可，例如：
+                    </p>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/cname.png" alt="cname"/></p>
+
+                    <h4>步骤3 - 去域名提供商管理后台添加A记录</h4>
+                    <p>
+A记录指向github web服务器IP地址:<br/>
+                    <pre>
+192.30.252.153
+192.30.252.154
+                    </pre>
+                    </p>
+                    <p>
+例如godaddy上面的域名A记录如下：
+                    </p>
+
+                    <p class="bs-docs-imgwrap"><img src="assets/img/arecord.png" alt="A Records"/></p>
+
+                    <h3 id="github-custom-subdomains">关于二级域名绑定</h3>
+                    <p>
+假设想将xx.yy.com绑定至github项目https://github.com/username/xx，可以按照以下步骤操作：
+                    <br/>
+                    <ol>
+                        <li>在xx项目的gh-pages分支内添加CNAME文件
+                            <br/>内容为二级域名xx.yy.com
+                        </li>
+                        <li>到域名提供商管理后台一条CNAME记录<br/>
+                            xxx 指向username.github.io 
+                        </li>
+                    </ol>
+                    <p>
+保存，然后最多等1、2天域名解析生效，一般半个小时~
+                    </p>
+
+                </div>
+                
+                <div class="bs-docs-section">
+                    <h2 id="summary">课间小结</h2>
+                    <p>
+码了一万字的课件，我们都学了些啥？<br/>
+                    <ol>
+                        <li>了解github提供的各种功能</li>
+                        <li>学会使用github注册个人帐号、建立个人源码项目、组织源码项目</li>
+                        <li>学会了搭建Git的客户端环境</li>
+                        <li>学会向源码项目中提交代码、修改代码、删除代码</li>
+                        <li>了解和使用神奇的gh-pages分支</li>
+                        <li>学会了个人站点、组织站点和项目站点的搭建</li>
+                        <li>学会将个人顶级域名、二级域名绑定至github项目，利用github托管个人（或组织）的静态站点</li>
+                        <li>学会了Fork - 拉取别人的源码项目并做为个人的开发分支</li>
+                    </ol>
+                    <p>
+不给我100块钱都不好意思了吧~
+                    </p>
+                    <p>
+不给100块我决定不下课了，我们接着上
+                    </p>
+                </div>
+
+                <div class="bs-docs-section">
+                    <h2 id="github-adv">Github站点进阶</h2>
+                    <p>
+对于Github站点，很多人都会关注下面这些问题：
+                    <br/>
+                    <ol>
+                        <li>是否支持php这些动态语言</li>
+                        <li>是否支持模板</li>
+                    </ol>
+                    <p>
+不支持动态语言意味着没办法利用Github托管一些有后台交互、数据存储的web应用~
+                    </p>
+                    <p>
+不支持模板意味着改一个公共的页头可能要改几十个页面~~
+                    </p>
+                    <h3 id="github-not-a-host">Github不是你的虚拟主机</h3>
+                    <p>
+毕竟，Github是源码托管平台不是托管网站的虚拟主机平台。<br/>
+出于安全的原因，Github站点是不支持php、asp.net这些动态的语言的，属于静态站点。<br/>
+但是，<br/>
+静态站点不一定意味着只能解析html文件~~<br/>
+静态站点不一定意味着不能用模板~~<br/>
+                    <p>
+
+Github站点是支持静态文件模板的，因为Github的web服务器部署了Jekyll，使用Jekyll来解析托管在Github上的静态文件。
+
+Jekyll
+
+
+
+不熟悉Jekyll的同学可以通过以下链接了解下：
+
+Jekyll官网：http://jekyllrb.com/
+Jekyll源码：https://github.com/jekyll/jekyll
+
+简单来说，
+Jekyll是一个静态站点生成器，你可以利用Jekyll支持的模板引擎来维护你的站点，它最终负责将你站点的模板，结合站点内容、配置数据一起生成静态html文件，最终被Github的web服务器所解析。
+
+Jekyll具体怎么用可以参考它的官网，说的非常详细，这里不再详细介绍，反正你们也不会给我100块~
+
+有了Jekyll，我们可以利用页面模板，可以在Github上托管复杂的静态站点、博客，而不用担心改一个公共页头要动N个页面。
+
+有了Jekyll，越来越多的前后端开发工程师从wordpress博客平台迁移到github站点，因为它自身处于Git的版本控制之中，不用担心数据内容丢失，而且更Geek更逼格。
+
+
+Octopress
+
+
+
+提到Jekyll，顺带提一下Octopress。
+
+Octopress基于Jekyll，增加更多的插件支持，例如搜索、标签云等等，功能特性更为丰富。
+
+只是由于一些插件可能引发的安全原因，Github没有直接支持Octopress站点。
+
+但你仍然可以用Octopress搭建静态站点，部署至Github之前先手工在本地电脑上利用Octopress提供的命令行生成静态页面即可。
+
+
+Octopress官网：http://octopress.org/
+Octopress源码：https://github.com/octopress/octopress
+
+
+Markdown
+
+
+
+
+一种简单易用的文档规范。
+
+最大的特点
+
+比HTML文件码的块。
+
+Github默认支持Markdown文档
+
+不管是Jekyll、Octopress还是Github，都推荐使用Markdown格式来书写页面文档。
+
+比起HTML文档，Markdown利用一些特定的符号来代替标签，专注于文档内容而不是形式。
+
+Markdown的学习资料
+
+想了解Markdown文档的同学可以访问以下链接：
+
+Markdown-Cheatsheet 
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+Github Flavored Markdown
+https://help.github.com/articles/github-flavored-markdown/ 
+
+
+
+已经快2万字了，再码下去估计还是没人给100块~
+下课吃饭去。
+
+《Githuber》的Github站点
+
+请猛击：http://xtutor.github.io
+
+Thanks!
+
+参考资料：
+
+    1. 《Git For Everyone》
+    http://anotheruiguy.gitbooks.io/gitforeveryone/content/
+    2. 《Faster, More Awesome GitHub Pages》
+    https://github.com/blog/1715-faster-more-awesome-github-pages
+
+
+
             </div>
             
             <div class="col-md-3"  role="complementary">
                  <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav bs-docs-sidenav">
-                        <li>
+                        <li class="active">
                             <a href="#intro">课程概述</a>
                             <ul class="nav">
                                 <li><a href="#why">课程目的</a></li>
@@ -541,6 +959,11 @@ git pull origin master
                         </li>
                         <li>
                             <a href="#create-org">创建Github组织</a>
+                            <ul class="nav">
+                                <li><a href="#create-org-entry">入口</a></li>
+                                <li><a href="#create-org-form">表单</a></li>
+                                <li><a href="#create-org-home">管理界面</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#git-env">搭建GIT客户端环境</a>
@@ -583,7 +1006,7 @@ git pull origin master
                             <a href="#git-workflow">Git的工作流</a>
                             <ul class="nav">
                                 <li><a href="#git-tree">三棵『树』</a></li>
-                                <li><a href="#git-tree-more">参考资料《简明指南》</a></li>
+                                <li><a href="#git-tree-more">《简明指南》</a></li>
                             </ul>
                         </li>
                         <li>

@@ -23,23 +23,13 @@
 
 body {
   position: relative; /* For scrollspy */
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-}
-
-h3 {
-  font-size: 20px;
-  margin-bottom:15px;
+  font-family: 'robotoregular', sans-serif;
+  background-color:#fbfbfb;
 }
 
 h4 {
-  font-weight: 400;
   text-transform: uppercase;
-  font-size: 18px;
-  padding-top: 20px;
 }
-
-h5{font-size:16px;font-style:italic;font-weight:600;margin-top:15px;}
 
 img{max-width:100%;}
 
@@ -136,6 +126,13 @@ a.navbar-brand:hover{
   border-color: #fff;
 }
 
+.bs-docs-imgwrap {
+  background-color:#fff;
+  border-radius:4px;
+  border:2px solid #eee;
+  padding:15px;
+}
+
 /* Bootstrap "B" icon */
 .bs-docs-booticon {
   display: block;
@@ -198,6 +195,14 @@ a.navbar-brand:hover{
   margin-bottom: 0;
   background-color: #48b983;
   border-bottom: 0;
+  color:#f6f6f6;
+}
+.bs-docs-nav h1 {
+  margin: 10px 0;
+  font-size: 50px;
+  line-height: 60px;
+  font-family:"robotothin";
+  text-rendering: auto;
 }
 .bs-home-nav .bs-nav-b {
   display: none;
@@ -651,7 +656,7 @@ a.navbar-brand:hover{
 .bs-docs-sidebar .nav > li > a {
   display: block;
   padding: 4px 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #666;
 }
@@ -682,7 +687,7 @@ a.navbar-brand:hover{
   padding-top: 1px;
   padding-bottom: 1px;
   padding-left: 30px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
 }
 .bs-docs-sidebar .nav .nav > li > a:hover,
@@ -694,6 +699,7 @@ a.navbar-brand:hover{
 .bs-docs-sidebar .nav .nav > .active:focus > a {
   padding-left: 28px;
   font-weight: 500;
+  border-left-color:#7fcea8;
 }
 
 /* Back to top (hidden on mobile) */
@@ -768,12 +774,6 @@ a.navbar-brand:hover{
 .bs-docs-section:last-child {
   margin-bottom: 0;
 }
-
-h1[id],h2[id] {
-  padding-top: 20px;
-  margin-top: 0;
-}
-
 
 /*
  * Callouts
@@ -1655,3 +1655,9 @@ h1[id],h2[id] {
   -webkit-box-shadow: 0 0 8px rgba(82,168,236,.6);
           box-shadow: 0 0 8px rgba(82,168,236,.6);
 }
+
+/*
+ * yue.css override
+ * */
+.yue a{color:#48b983;}
+
