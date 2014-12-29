@@ -848,92 +848,94 @@ A记录指向github web服务器IP地址:<br/>
 但是，<br/>
 静态站点不一定意味着只能解析html文件~~<br/>
 静态站点不一定意味着不能用模板~~<br/>
+                    </p>
+                    <p>
+Github站点是支持静态文件模板的，因为Github的web服务器部署了Jekyll，使用Jekyll来解析托管在Github上的静态文件。
+                    </p>
+                    <h3 id="jekyll">Jekyll</h3>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/jekyll.png" alt="jekyll" /></p>
+                    <p>
+不熟悉Jekyll的同学可以通过以下链接了解下：
+                    <ul>
+                        <li>Jekyll官网：<a href="http://jekyllrb.com/" target="_blank">jekyllrb.com</a></li>
+                        <li>Jekyll源码：<a href="https://github.com/jekyll/jekyll" target="_blank">github.com/jekyll/jekyll</a></li>
+                    </ul>
+                    <p>
+简单来说，<br/>
+Jekyll是一个静态站点生成器，你可以利用Jekyll支持的模板引擎来维护你的站点，它最终负责将你站点的模板，结合站点内容、配置数据一起生成静态html文件，最终被Github的web服务器所解析。
+                    </p>
+                    <p>
+Jekyll具体怎么用可以参考它的官网，说的非常详细，这里不再详细介绍，反正你们也不会给我100块~
+                    </p>
+                    <p>
+有了Jekyll，我们可以利用页面模板，可以在Github上托管复杂的静态站点、博客，而不用担心改一个公共页头要动N个页面。
+                    </p>
+                    <p>
+有了Jekyll，越来越多的前后端开发工程师从wordpress博客平台迁移到github站点，因为它自身处于Git的版本控制之中，不用担心数据内容丢失，而且更Geek更逼格。
+                    </p>
+                    <h3 id="octopress">Octopress</h3>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/octopress.png" alt="octopress" /></p>
+                    <p>
+提到Jekyll，顺带提一下Octopress。
+                    </p>
+                    <p>
+Octopress基于Jekyll，增加更多的插件支持，例如搜索、标签云等等，功能特性更为丰富。
+<br/>
+只是由于一些插件可能引发的安全原因，Github没有直接支持Octopress站点。
+<br/>
+但你仍然可以用Octopress搭建静态站点，部署至Github之前先手工在本地电脑上利用Octopress提供的命令行生成静态页面即可。
+                    </p>
+                    <p>
+Octopress官网：<a href="http://octopress.org/" target="_blank">octopress.org</a>
+                    </p>
+                    <p>
+Octopress源码：<a href="https://github.com/octopress/octopress" target="_blank">github.com/octopress/octopress</a>
+                    </p>
+                    <h3 id="markdown">Markdown</h3>
+                    <p class="bs-docs-imgwrap"><img src="assets/img/markdown.png" alt="markdown" /></p>
+                    <p>
+一种简单易用的文档规范。
+                    </p>
+                    <h4>最大的特点</h4>
                     <p>
 
-Github站点是支持静态文件模板的，因为Github的web服务器部署了Jekyll，使用Jekyll来解析托管在Github上的静态文件。
-
-Jekyll
-
-
-
-不熟悉Jekyll的同学可以通过以下链接了解下：
-
-Jekyll官网：http://jekyllrb.com/
-Jekyll源码：https://github.com/jekyll/jekyll
-
-简单来说，
-Jekyll是一个静态站点生成器，你可以利用Jekyll支持的模板引擎来维护你的站点，它最终负责将你站点的模板，结合站点内容、配置数据一起生成静态html文件，最终被Github的web服务器所解析。
-
-Jekyll具体怎么用可以参考它的官网，说的非常详细，这里不再详细介绍，反正你们也不会给我100块~
-
-有了Jekyll，我们可以利用页面模板，可以在Github上托管复杂的静态站点、博客，而不用担心改一个公共页头要动N个页面。
-
-有了Jekyll，越来越多的前后端开发工程师从wordpress博客平台迁移到github站点，因为它自身处于Git的版本控制之中，不用担心数据内容丢失，而且更Geek更逼格。
-
-
-Octopress
-
-
-
-提到Jekyll，顺带提一下Octopress。
-
-Octopress基于Jekyll，增加更多的插件支持，例如搜索、标签云等等，功能特性更为丰富。
-
-只是由于一些插件可能引发的安全原因，Github没有直接支持Octopress站点。
-
-但你仍然可以用Octopress搭建静态站点，部署至Github之前先手工在本地电脑上利用Octopress提供的命令行生成静态页面即可。
-
-
-Octopress官网：http://octopress.org/
-Octopress源码：https://github.com/octopress/octopress
-
-
-Markdown
-
-
-
-
-一种简单易用的文档规范。
-
-最大的特点
-
 比HTML文件码的块。
+                    </p>
 
-Github默认支持Markdown文档
+                    <h4>Github默认支持Markdown文档 </h4>
+                    <p>
 
-不管是Jekyll、Octopress还是Github，都推荐使用Markdown格式来书写页面文档。
+不管是Jekyll、Octopress还是Github，都推荐使用Markdown格式来书写页面文档。<br/>
 
 比起HTML文档，Markdown利用一些特定的符号来代替标签，专注于文档内容而不是形式。
-
-Markdown的学习资料
-
+                    </p>
+                    <h4>Markdown的学习资料</h4>
+                    <p>
 想了解Markdown文档的同学可以访问以下链接：
+                    <ul>
+                        <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Markdown-Cheatsheet</a></li> 
+                        <li><a href="https://help.github.com/articles/github-flavored-markdown/" target="_blank">Github Flavored Markdown</a></li>
+                    </ul>
+                    </p>
 
-Markdown-Cheatsheet 
-https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-
-Github Flavored Markdown
-https://help.github.com/articles/github-flavored-markdown/ 
-
-
-
+                    <p>
 已经快2万字了，再码下去估计还是没人给100块~
-下课吃饭去。
+<br/>下课吃饭去。
+                    </p>
+                </div>
 
-《Githuber》的Github站点
-
-请猛击：http://xtutor.github.io
-
-Thanks!
-
-参考资料：
-
-    1. 《Git For Everyone》
-    http://anotheruiguy.gitbooks.io/gitforeveryone/content/
-    2. 《Faster, More Awesome GitHub Pages》
-    https://github.com/blog/1715-faster-more-awesome-github-pages
-
-
+                <div class="bs-docs-section">
+                    <h2 id="endcall">《Githuber》站点</h2>
+                    <p>请猛击：<a href="http://xtutor.github.io/githuber" target="_blank">xtutor.github.io/githuber</a>
+                    <p>Thanks!</p>
+                    <p>
+                    参考资料：<br/>
+                    <ol>
+                        <li><a href="http://anotheruiguy.gitbooks.io/gitforeveryone/content/" target="_blank">《Git For Everyone》</a></li>
+                        <li><a href="https://github.com/blog/1715-faster-more-awesome-github-pages" target="_blank">《Faster, More Awesome Github Pages》</a></li>
+                    </ol>
+                    </p>
+                </div>
 
             </div>
             

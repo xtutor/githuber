@@ -25,6 +25,7 @@ body {
   position: relative; /* For scrollspy */
   font-family: 'robotoregular', sans-serif;
   background-color:#fbfbfb;
+  padding-bottom:50px;
 }
 
 h4 {
